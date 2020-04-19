@@ -169,8 +169,8 @@ If you run `python preprocess.py` it:
 - splits them into `training` and `test` parts
 - asks you whether you like the number of zeroes and eights in each part
 - transforms them and finally produces the following:
-    - `dataset/proprocessed/training` - preprocessed training images
-    - `dataset/proprocessed/test` - preprocessed test images
+    - `dataset/preprocessed/training` - preprocessed training images
+    - `dataset/preprocessed/test` - preprocessed test images
     - `dataset/training.csv` - file used by `main.py` for training
     - `dataset/test.csv` - file used by `main.py` for test
     
