@@ -83,19 +83,6 @@ def add_to_csv(image, number, csv_writer):
     csv_writer.writerow(values)
 
 
-def copy_files(files, dst):
-    if not os.path.isdir(dst):
-        mkdir(dst)
-
-    new_files = []
-
-    for file in files:
-        copy2(file, dst)
-        new_files.append(dst + file)
-
-    return new_files
-
-
 def find_black_and_white_average(image):
     width, height = image.size
     pixels = image.load()
@@ -242,7 +229,10 @@ def main():
     test_dir = join(preprocessed_dir, 'test')
 
     mkdir(training_dir)
+    [os.remove(join(training_dir, f)) for f in os.listdir(training_dir) if f.endswith(".png")]
+
     mkdir(test_dir)
+    [os.remove(join(test_dir, f)) for f in os.listdir(test_dir) if f.endswith(".png")]
 
     files = [f for f in listdir(original_dir) if isfile(join(original_dir, f))]
     original_training_files, original_test_files = split(files, 0.9)    # 90% for training

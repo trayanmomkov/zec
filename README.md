@@ -35,11 +35,13 @@ $ pip install tensorflow
 ## Usage
 To train and predict:
 ```
+cd zec/
 python main.py
 ```
 If you want to train on your own collection of images, before `main.py
 ` you have to execute:
 ```
+cd zec/
 python preprocess.py
 ```
 If you get `No module named PIL` error try to replace
@@ -71,7 +73,7 @@ Where:
  - `[1024, 1024]` represents a **neural network** with two layers with 1024
  neurons each.
  - `'rate': 0.00001` is the learning rate - how fast the model learns.
- - `'drop': 0.2` is the [**dropout**](https://en.wikipedia.org/wiki/Dropout_(neural_networks\)) (20% of the neurons are dropped to
+ - `'drop': 0.2` is the [**dropout**](https://en.wikipedia.org/wiki/Dropout_(neural_networks)) (20% of the neurons are dropped to
  prevent overfitting).
  - `'epochs': 20` shows how many times we will iterate over the entire
   dataset.
@@ -94,7 +96,7 @@ Prediction: 8 Confidence: 1.0
 For every run of `main.py` it saves the model as
 **[SavedModel](https://www.tensorflow.org/guide/saved_model)**
 in `saved_models/<date>_<time>/`
-and as **TensorFlow Lite model** (tflite) in
+and **TensorFlow Lite model** (tflite) in
 `tflite_models/<date>_<time>.tflite`.
 
 ### Dataset
@@ -111,12 +113,12 @@ The average number of eights in a receipt is significantly smaller than
     Techniques like [SMOTE](https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/) are not used.
 
 I tried to shoot the receipts in environment as close as possible to the
- environment in restaurants and cafes when you are trying to split your
+ environment in restaurants and cafes where you try to split your
   common bill with friends.
  As I already mentioned my final goal was to predict numbers in my
   bill splitting application - **ReCalc**.
   
-  Pictures are taken using
+  Pictures are taken with
  **Samsung Galaxy A8+** and **Huawei Honor 4X** in
  proportion 70/30. The proportion regarding the light is about:
  - 26% night, low light
@@ -155,7 +157,7 @@ The following manipulations are applied to the original images before
  I've tried different variants but empirically these above produce
   the best result.
   
- I was thinking if the image is monochrome the model will be able to
+ I was thinking if the image is **monochrome** the model will be able to
    fit it better. And maybe this is true. The problem is that this way it
     looks like it starts overfitting. And I suspect this is because the
      monochrome image contains more information, or in other words
@@ -169,8 +171,8 @@ If you run `python preprocess.py` it:
 - transforms them and finally produces the following:
     - `dataset/proprocessed/training` - preprocessed training images
     - `dataset/proprocessed/test` - preprocessed test images
-    - `dataset/training.csv` - file used by main.py for training
-    - `dataset/test.csv` - file used by main.py for test
+    - `dataset/training.csv` - file used by `main.py` for training
+    - `dataset/test.csv` - file used by `main.py` for test
     
 In `training` and `test` directories you can see how prepared for
  training images look. On the final step `preprocess.py` uses them to
@@ -222,8 +224,10 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 
 ## Contact
 If you find an error, something looks incorrect or just have a suggestion please write me.
-Trayan Momkov
+
 ![Image](resources/a.png)
+
+Trayan Momkov
 
 ## License
 [Apache License 2.0](LICENSE)
