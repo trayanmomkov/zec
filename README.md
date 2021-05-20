@@ -160,8 +160,8 @@ The following manipulations are applied to the original images before
  I was thinking if the image is **monochrome** the model will be able to
    fit it better. And maybe this is true. The problem is that this way it
     looks like it starts overfitting. And I suspect this is because the
-     monochrome image contains more information, or in other words
-      - more noise. 
+     monochrome image contains more information compared to black and 
+ white, or in other words - more noise. 
     
 
 If you run `python preprocess.py` it:
